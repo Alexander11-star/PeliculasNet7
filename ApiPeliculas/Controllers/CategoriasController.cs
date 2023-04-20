@@ -4,6 +4,7 @@ using ApiPeliculas.Repositorio.IRepositorio;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ApiPeliculas.Controllers
 {
@@ -146,3 +147,10 @@ namespace ApiPeliculas.Controllers
         }
     }
 }
+
+
+/*para la migracion, en la consola
+add-migration CreacionTablaUsuario
+
+update-database
+*/
