@@ -121,7 +121,7 @@ namespace ApiPeliculas.Controllers
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         //[ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult BorrarPelicula(int peliculaId)
         {
             if (!_pelRepo.ExistePelicula(peliculaId))
