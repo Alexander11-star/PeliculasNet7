@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ApiPeliculas.Controllers
 {
-
     [ApiController]
     //[Route("api/[controller]")]//Una opción
     [Route("api/categorias")]
@@ -62,7 +61,7 @@ namespace ApiPeliculas.Controllers
             return Ok(itemCategoriaDto);
         }
 
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         [HttpPost]
         [ProducesResponseType(201, Type = typeof(CategoriaDto))]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -95,11 +94,11 @@ namespace ApiPeliculas.Controllers
             return CreatedAtRoute("GetCategoria", new { categoriaId = categoria.Id }, categoria);
         }
 
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         [HttpPatch("{categoriaId:int}", Name = "ActualizarPatchCategoria")]
         [ProducesResponseType(201, Type = typeof(CategoriaDto))]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        //[ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult ActualizarPatchCategoria(int categoriaId, [FromBody] CategoriaDto categoriaDto)
         {
@@ -122,11 +121,11 @@ namespace ApiPeliculas.Controllers
             return NoContent();
         }
 
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         [HttpDelete("{categoriaId:int}", Name = "BorrarCategoria")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
-        //[ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult BorrarCategoria(int categoriaId)
