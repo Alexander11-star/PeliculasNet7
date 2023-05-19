@@ -10,5 +10,8 @@ namespace ApiPeliculas.Modelos
         public string Nombre { get; set; }
         public string Password { get; set; }
         public string Role { get; set; }
+
+        //En la consolda escribimos add-migration Usuario
+        //Despues -> update-database
     }
 }

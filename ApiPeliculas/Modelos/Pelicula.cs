@@ -19,5 +19,8 @@ namespace ApiPeliculas.Modelos
         [ForeignKey("categoriaId")]
         public int categoriaId { get; set; }
         public Categoria Categoria { get; set; }
+
+        //En la consolda escribimos add-migration Pelicula
+        //Despues -> update-database
     }
 }

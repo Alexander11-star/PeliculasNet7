@@ -4,6 +4,7 @@ using ApiPeliculas.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiPeliculas.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230519200310_AgregadoNETIdentity")]
+    partial class AgregadoNETIdentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -107,7 +110,7 @@ namespace ApiPeliculas.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categoria", (string)null);
+                    b.ToTable("Categoria");
                 });
 
             modelBuilder.Entity("ApiPeliculas.Modelos.Pelicula", b =>
@@ -143,7 +146,7 @@ namespace ApiPeliculas.Migrations
 
                     b.HasIndex("categoriaId");
 
-                    b.ToTable("Pelicula", (string)null);
+                    b.ToTable("Pelicula");
                 });
 
             modelBuilder.Entity("ApiPeliculas.Modelos.Usuario", b =>
@@ -168,7 +171,7 @@ namespace ApiPeliculas.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Usuario", (string)null);
+                    b.ToTable("Usuario");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

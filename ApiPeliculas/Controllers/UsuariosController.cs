@@ -44,13 +44,13 @@ namespace ApiPeliculas.Controllers
         }
 
         [Authorize(Roles = "admin")]
-        [HttpGet("{usuarioId:int}", Name = "GetUsuario")]
+        [HttpGet("{usuarioId}", Name = "GetUsuario")]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult GetUsuario(int usuarioId)
+        public IActionResult GetUsuario(string usuarioId)
         {
             var itemUsuario = _usRepo.GetUsuario(usuarioId);
 
@@ -94,6 +94,8 @@ namespace ApiPeliculas.Controllers
             _respuestaApi.IsSuccess = true;
             return Ok(_respuestaApi);
         }
+
+        //Despues de de obtener el token en Autorize escribimos Bearer Tokenejemplojhwjdhwjd
 
         [AllowAnonymous]
         [HttpPost("login")]
